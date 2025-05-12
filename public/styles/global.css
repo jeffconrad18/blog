@@ -1,0 +1,122 @@
+/* public/styles/global.css */
+body {
+  margin: 0; padding: 2rem;
+  background: #f9f8f4 url('/images/paper-texture.png') center/cover no-repeat;
+  font-family: 'Libre Baskerville', serif;
+  color: #111;
+}
+.flyer {
+  max-width: 900px; margin: auto;
+  padding: 2rem; background: rgba(255,255,255,0.95);
+  border: 2px solid #111;
+}
+
+/* HEADER mit Kästen */
+.header {
+  display: flex; align-items: center;
+  justify-content: space-between;
+}
+.box {
+  border: 3px solid #111; padding: 0.5rem 1rem;
+  font-size: 0.9rem; font-style: italic;
+  text-align: center; line-height: 1.2;
+}
+.fraktur {
+  font-family: 'UnifrakturCook', cursive;
+  font-size: 1.8rem; margin: 0;
+}
+
+/* HERO */
+.hero {
+  text-align: center; margin: 1rem 0;
+}
+.hero h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: 4rem; margin: 0; line-height: 1;
+}
+.hero h3 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2rem; margin: 0.5rem 0;
+  font-weight: normal; letter-spacing: 1px;
+}
+
+/* Trennlinie */
+.rule {
+  border-top: 2px solid #111;
+  margin: 1rem 0;
+  position: relative;
+}
+.rule::after {
+  content: ''; display: block;
+  border-top: 2px solid #111; margin-top: 0.3rem;
+}
+
+/* Spaltenlayout */
+.columns {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem; margin-bottom: 2rem;
+}
+.columns h4 {
+  margin-top: 0; font-size: 1rem; text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.columns p { margin: 0 0 1rem; line-height: 1.4; }
+.image img {
+  width: 100%; display: block;
+  border: 1px solid #111;
+}
+
+/* Vollbreite Sektion */
+.full h4 {
+  font-size: 1rem; text-transform: uppercase;
+  margin: 0 0 0.5rem; letter-spacing: 1px;
+}
+.full p { margin-bottom: 1rem; line-height: 1.5; }
+
+/* Karte als ClipPath */
+.map-container {
+  width: 300px; margin: 1rem auto;
+}
+.map-container svg {
+  display: block; width: 100%; height: auto;
+}
+
+/* Support-Sektion */
+.support {
+  text-align: center; margin: 2rem 0;
+}
+.support .box {
+  display: inline-block; margin: 0 1rem;
+}
+.jesuit {
+  display: inline-block; margin: 0 1rem;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2rem; font-style: italic;
+}
+.jesuit span {
+  font-family: 'Libre Baskerville', serif;
+  font-style: normal; color: #2a7f2a;
+}
+
+/* Zweispaltig darunter */
+.cols-2 {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+  text-align: left; margin-top: 1rem;
+}
+.donation-account {
+  border: 2px solid #111; padding: 1rem;
+  line-height: 1.4;
+}
+
+/* Footer-Banner */
+.banner {
+  border: 3px solid #111; padding: 1rem;
+  display: flex; justify-content: center; align-items: center;
+  gap: 1rem; font-weight: bold; font-size: 1rem;
+  margin-top: 2rem;
+}
+.banner span { font-style: italic; }
+.banner a {
+  color: #111; text-decoration: none;
+}

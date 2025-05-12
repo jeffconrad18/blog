@@ -1,0 +1,105 @@
+---
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+const title = "Jahr in Indien";
+const description = "Mein Freiwilligendienst in Pune, Indien";
+---
+<Layout {title} {description}>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="box box-left">
+      <span>MAI<br/>2025</span>
+    </div>
+	<div style="display: flex; justify-content: center; align-items: center; min-height: 40vh;">
+		<img src="/title.png" alt="Post aus Pune" style="max-width: 70%; height: auto;" />
+	</div>
+      <div class="box box-right">
+      <span>KILIAN<br/>KIENAST</span>
+    </div>
+  </header>
+
+  <!-- HAUPTÜBERSCHRIFT -->
+  <section class="hero">
+    <h2>JAHR IN INDIEN</h2>
+    <h3>MEIN FREIWILLIGENDIENST</h3>
+  </section>
+
+  <!-- LINIE -->
+  <div class="rule"></div>
+
+  <!-- ZWEI-SPALTEN: LINKS TEXT, RECHTS FOTO -->
+  <section class="columns">
+    <div class="col text">
+      <h4>Pune, Indien</h4>
+      <p>Nach meinem Abitur breche ich zu einer besonderen Reise auf: Für ein Jahr werde ich mit Jesuit Volunteers in Pune, Indien, leben und arbeiten. Als Freiwilliger bei der Organisation "Maher" werde ich mit hilfsbedürftigen Frauen, Männern und Kindern arbeiten und dabei in eine faszinierende Kultur eintauchen, die sich durch ihre Vielfalt an Religionen, Traditionen und Festen auszeichnet. Durch das praktische, soziale Engagement erhoffe ich mir meinen Horizont zu erweitern.</p>
+      <h4>Über mich</h4>
+      <p>Ich bin Kilian Kienast, 18 Jahre alt und habe gerade mein Abitur gemacht. Neben der Schule engagiere ich mich seit vielen Jahren ehrenamtlich: Ich bin bei Kolping aktiv, wo ich bei zahlreichen Veranstaltungen wie dem großen Flohmarkt mithelfe, als Feuerwehrmann in der Feuerwehr Berchtesgaden unterstütze ich nicht nur bei Einsätzen, sondern bringe mich auch im IT-Team ein und bis zum letzten Jahr war ich als Ministrant tätig. Meine Freizeit gestalte ich vielseitig: Ich spiele Fußball beim TSV Berchtesgaden, entwickle Projekte mit denen ich auch an Jugend forscht teilgenommen habe und arbeite als freier Mitarbeiter beim Berchtesgadener Anzeiger. Seit einiger Zeit engagiere ich mich außerdem bei Fridays For Future, wo ich unter anderem Gespräche mit Landtagsabgeordneten führe.</p>
+      <p>Seit längerer Zeit beschäftigt mich der Gedanke, welche Auswirkungen unser westlicher, sehr materieller Lebensstil auf andere Teile der Welt hat. Ich möchte eine andere Kultur und neue Menschen kennenlernen, aktiv helfen und erhoffe mir einen neuen Blick auf das Leben. Meine bisherigen Auslandserfahrungen in Italien und Belgien haben mir bereits gezeigt, wie bereichernd der Kontakt mit anderen Kulturen sein kann und wie sehr solche Erfahrungen die eigene Persönlichkeit prägen können. Ich bin überzeugt, dass ein Jahr in Indien mich nicht nur ein Leben lang begleiten, sondern auch nachhaltig verändern wird.</p>
+    </div>
+    <div class="col image">
+      <img src="/images/kilian.jpg" alt="Kilian Kienast" />
+    </div>
+  </section>
+
+  <!-- AUSFÜHRLICHER TEXT ÜBER MAHER & MAP -->
+  <section class="full">
+    <h4>Mein Einsatzort: Maher</h4>
+    <p>Mein Weg führt mich nach Pune in Indien, wo ich bei der Organisation "Maher" - was in der dortigen Sprache Marathi für "Haus der Mutter" steht - mitarbeiten werde. Maher kümmert sich dabei um vernachlässigte Kinder, psychisch kranke Frauen und Männer und bietet ihnen ein Zuhause. In verschiedenen Einrichtungen wie Vatsalyadam, einem Kinder- und Frauenhaus, finden sie Unterkunft, Schutz und die notwendige Betreuung. Meine Aufgaben werden vielfältig sein: Ich werde Kinder bei Schulvorbereitungen und Hausaufgaben unterstützen, tagesstrukturierende Angebote für die Frauen begleiten, sportliche und kreative Aktivitäten gestalten und bei der Organisation von Festen und Veranstaltungen helfen. Zudem kann ich meine Kenntnisse in Englisch, Deutsch und IT im Bildungsprogramm weitergeben. Indien mit seiner faszinierenden Vielfalt an Religionen, Kulturen und Traditionen verspricht ein reiches Spektrum an Eindrücken. Ich freue mich auf die farbenfrohen Feste, die Begegnungen mit Menschen unterschiedlichster Hintergründe und die Chance, in eine Welt einzutauchen, die sich fundamental von meiner gewohnten Umgebung unterscheidet.</p>
+
+    <!-- GECLIPPTE KARTE IN FORM VON INDIEN -->
+    <div class="map-container">
+      <svg viewBox="0 0 600 850" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <clipPath id="india-clip">
+            <!-- hier den Pfad der Indien-Silhouette einsetzen -->
+            <path d="M300,0 L..." />
+          </clipPath>
+        </defs>
+        <foreignObject x="0" y="0" width="600" height="850"
+          clip-path="url(#india-clip)">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18…"
+            width="600" height="850" style="border:0;"
+            allowfullscreen="" loading="lazy">
+          </iframe>
+        </foreignObject>
+      </svg>
+    </div>
+  </section>
+
+  <!-- SPENDEN / JV & FOOTER -->
+  <div class="rule"></div>
+  <section class="support">
+    <div class="box support-left">
+      <span>SPENDEN</span>
+    </div>
+    <h2 class="jesuit">jesuit<span>volunteers</span></h2>
+    <div class="box support-right">
+      <span>ÜBER JV</span>
+    </div>
+
+    <div class="cols-2">
+      <div>
+        <p>Ich würde mich sehr freuen …</p>
+        <div class="donation-account">
+          <strong>Spendenkonto Deutschland:</strong><br/>
+          Kontoinhaber: jesuitenweltweit<br/>
+          IBAN: DE61 7509 0300 0005 1155 82<br/>
+          BIC: GENO DEF1 M05<br/>
+          Verwendungszweck Maher: X38439<br/>
+          Verwendungszweck JV: X38444
+        </div>
+      </div>
+      <div class="about-jv">
+        <p>Das Freiwilligenprogramm „Jesuit Volunteers“ ist eine Kooperation von jesuitenweltweit in Deutschland, Österreich und der Schweiz unter der Leitung von jesuitenweltweit in Nürnberg. Jedes Jahr werden Freiwillige jeden Alters in die Welt gesendet, um in einem sozialen Projekt mitzuarbeiten. Dort teilen sie das Leben der Menschen, begegnen ihnen auf Augenhöhe und lernen ein Jahr lang anders zu leben. Weitere Informationen unter: www.jesuit-volunteers.org.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNER AM SEITENENDE -->
+  <footer class="banner">
+    <span>NEUES UNTER:</span>
+    <span>*</span>
+    <a href="https://bit.ly/43PHnFL">Whatsapp-Kanal</a>
+  </footer>
+</Layout>
