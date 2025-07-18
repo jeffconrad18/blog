@@ -1,11 +1,11 @@
 export const ui = {
   'de': {
-    title: 'Neusatz',
-    subtitle: 'Die Schönheit der Typografie wiederbeleben',
-    description: 'Retypeset ist ein statisches Blog-Theme basierend auf dem Astro-Framework, auf Deutsch bekannt als "Neusatz". Dieses Theme, inspiriert von traditioneller Typografie, etabliert einen neuen visuellen Standard und gestaltet alle Seiten neu, um ein Leseerlebnis ähnlich dem gedruckter Bücher zu schaffen und die Schönheit des Satzes wiederzubeleben. Jedes Element ist bis ins kleinste Detail durchdacht, Eleganz zeigt sich auch im kleinsten Raum.',
+    title: 'Post aus Pune',
+    subtitle: 'Kilian Kienast - Mein soziales Jahr in Indien',
+    description: 'Kilian Kienast Blog über das freiwillige soziale Jahr in Indien.',
     posts: 'Beiträge',
-    tags: 'Schlagwörter',
-    about: 'Über',
+    tags: 'Jesuit Volunteers',
+    about: 'Über mich',
     toc: 'Inhaltsverzeichnis',
   },
   'en': {

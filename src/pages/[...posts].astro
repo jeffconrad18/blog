@@ -1,0 +1,56 @@
+---
+import PostList from '@/components/PostList.astro'
+import { defaultLocale, moreLocales } from '@/config'
+import Layout from '@/layouts/Layout.astro'
+import { getPinnedPosts, getPostsByYear } from '@/utils/content'
+
+export async function getStaticPaths() {
+  type PathItem = {
+    params: { posts: string | undefined }
+    props: { lang: string }
+  }
+
+  const paths: PathItem[] = []
+
+  // Default locale
+  paths.push({
+    params: { posts: "posts/" },
+    props: { lang: defaultLocale },
+  })
+
+  // More locales
+  moreLocales.forEach((lang: string) => {
+    paths.push({
+      params: { posts: `${lang}/posts/` },
+      props: { lang },
+    })
+  })
+
+  return paths
+}
+
+const { lang } = Astro.props
+
+const pinnedPosts = await getPinnedPosts(lang)
+const postsByYear = await getPostsByYear(lang)
+---
+
+<Layout>
+  <!-- Pinned Posts -->
+  {pinnedPosts.length > 0 && (
+    <section class="mb-7.5">
+      <h2 class="mb-2 text-xl font-bold">Beiträge</h2>
+      <div class="uno-decorative-line" />
+      <PostList posts={pinnedPosts} lang={lang} pinned={true} showAsHome={true} />
+    </section>
+  )}
+
+  <!-- Regular Posts -->
+  {[...postsByYear.entries()].map(([_year, posts]) => (
+    <section class="mb-7.5">
+      <h2 class="mb-2 text-xl font-bold">Beiträge</h2>
+      <div class="uno-decorative-line" />
+      <PostList posts={posts} lang={lang} showAsHome={true} />
+    </section>
+  ))}
+</Layout>

@@ -31,6 +31,10 @@ export function isAboutPage(path: string) {
   return isPageType(path, 'about')
 }
 
+export function isJesuitVolunteersPage(path: string) {
+  return isPageType(path, 'jesuitvolunteers')
+}
+
 // Returns page context with language, page types and localization helper
 export function getPageInfo(path: string) {
   const currentLang = getLangFromPath(path)

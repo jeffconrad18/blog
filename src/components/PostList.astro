@@ -12,13 +12,14 @@ type Post = CollectionEntry<'posts'> & {
   }
 }
 
-const { posts, lang, pinned = false } = Astro.props
-const isHome = isHomePage(Astro.url.pathname)
+const { posts, lang, pinned = false, showAsHome = false } = Astro.props
+const isHome = isHomePage(Astro.url.pathname) || showAsHome
 
 export interface Props {
   posts: Post[]
   lang: string
   pinned?: boolean
+  showAsHome?: boolean
 }
 
 function getPostPath(post: Post) {

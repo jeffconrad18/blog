@@ -1,8 +1,13 @@
 ---
-import PostList from '@/components/PostList.astro'
+import { render } from 'astro:content'
+import Comment from '@/components/Comment/Index.astro'
+import PostDate from '@/components/PostDate.astro'
+import TagList from '@/components/TagList.astro'
+import TOC from '@/components/Widgets/TOC.astro'
 import { defaultLocale, moreLocales } from '@/config'
 import Layout from '@/layouts/Layout.astro'
-import { getPinnedPosts, getPostsByYear } from '@/utils/content'
+import { getPosts } from '@/utils/content'
+import { getPostDescription } from '@/utils/description'
 
 export async function getStaticPaths() {
   type PathItem = {
@@ -31,24 +36,66 @@ export async function getStaticPaths() {
 
 const { lang } = Astro.props
 
-const pinnedPosts = await getPinnedPosts(lang)
-const postsByYear = await getPostsByYear(lang)
+// Get the latest post
+const posts = await getPosts(lang)
+const latestPost = posts[0] // Posts are already sorted by date (newest first)
+
+if (!latestPost) {
+  throw new Error('No posts found')
+}
+
+const description = getPostDescription(latestPost, 'meta')
+const { Content, headings, remarkPluginFrontmatter } = await render(latestPost)
 ---
 
-<Layout>
-  <!-- Pinned Posts -->
-  {pinnedPosts.length > 0 && (
-    <section class="mb-7.5">
-      <div class="uno-decorative-line" />
-      <PostList posts={pinnedPosts} lang={lang} pinned={true} />
-    </section>
-  )}
+<Layout
+  postTitle={latestPost.data.title}
+  postDescription={description}
+  postSlug={latestPost.id}
+>
+  <article class="heti">
+    <div class="relative">
+      <!-- Title -->
+      <h1 class="post-title">
+        <span
+          transition:name={`post-${latestPost.data.abbrlink || latestPost.id}${lang ? `-${lang}` : ''}`}
+          data-disable-theme-transition
+        >
+          {latestPost.data.title}
+        </span>
+      </h1>
+    </div>
 
-  <!-- Regular Posts -->
-  {[...postsByYear.entries()].map(([_year, posts]) => (
-    <section class="mb-7.5">
-      <div class="uno-decorative-line" />
-      <PostList posts={posts} lang={lang} />
-    </section>
-  ))}
+    <!-- Date -->
+    <div
+      id="post-date"
+      class="mb-17.2 block c-primary font-time"
+      transition:name={`time-${latestPost.data.abbrlink || latestPost.id}${lang ? `-${lang}` : ''}`}
+      data-disable-theme-transition
+    >
+      <PostDate
+        date={latestPost.data.published}
+        updatedDate={latestPost.data.updated}
+        minutes={remarkPluginFrontmatter.minutes}
+      />
+    </div>
+    <!-- TOC -->
+    {latestPost.data.toc && <TOC headings={headings} />}
+    <!-- Content -->
+    <div id="post-content">
+      <Content />
+      <!-- Copyright -->
+      <div id="post-copyright" />
+      <!-- Tag List -->
+      {latestPost.data.tags?.length > 0 && (
+        <div class="mt-12.6 uno-decorative-line" />
+        <TagList
+          tags={latestPost.data.tags}
+          lang={lang}
+        />
+      )}
+      <!-- Comment -->
+      <Comment />
+    </div>
+  </article>
 </Layout>

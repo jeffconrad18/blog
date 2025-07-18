@@ -27,6 +27,7 @@ const posts = defineCollection({
   }),
 })
 
+
 const about = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/about' }),
   schema: z.object({
@@ -34,4 +35,12 @@ const about = defineCollection({
   }),
 })
 
-export const collections = { posts, about }
+
+const jesuitvolunteers = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/jesuitvolunteers' }),
+  schema: z.object({
+    lang: z.enum(['', ...allLocales]).optional().default(''),
+  }),
+})
+
+export const collections = { posts, about, jesuitvolunteers }

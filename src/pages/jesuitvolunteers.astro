@@ -1,0 +1,17 @@
+---
+import { getCollection, render } from 'astro:content'
+import Layout from '@/layouts/Layout.astro'
+
+// Hole die jesuitvolunteers Seite wie bei about
+const allJVEntries = await getCollection('jesuitvolunteers')
+const jvEntry = allJVEntries.find(entry => entry.data.lang === '')
+const { Content } = jvEntry ? await render(jvEntry) : { Content: null }
+---
+
+<Layout>
+  <h2 class="mb-2 text-xl font-bold">Jesuit Volunteers</h2>
+  <div class="uno-decorative-line" />
+  <div class="heti">
+    {Content && <Content />}
+  </div>
+</Layout>
