@@ -1,7 +1,6 @@
 ---
 import { defaultLocale, themeConfig } from '@/config'
 import { getLangFromPath } from '@/i18n/lang'
-import NewsletterSignup from './NewsletterSignup.astro'
 
 const { author } = themeConfig.site
 const { links: socialLinks, startYear } = themeConfig.footer
@@ -30,8 +29,6 @@ const footerLinkClass = 'highlight-hover py-0.8 transition-colors after:bottom-0
   class="text-3 leading-1.25em font-navbar lg:text-3.5"
   lg="uno-desktop-column bottom-20"
 >
-  <NewsletterSignup />
-
   <section
     class="font-navbar text-3.5 mb-8 md:text-3.5 md:mb-8 lg:text-3.5 lg:mb-8"
     style="line-height:1.5; z-index:1; position:relative; background:var(--bg,transparent);"

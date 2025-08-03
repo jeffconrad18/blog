@@ -1,25 +1,53 @@
+# .github/workflows/newsletter-signup.yml
+
 name: Newsletter Signup
+
+# Dieser Trigger ist entscheidend. Er "hört" auf das Event, das deine API-Route sendet.
+# Der 'event_type' ('newsletter-signup') muss exakt übereinstimmen.
 on:
   repository_dispatch:
     types: [newsletter-signup]
+
 jobs:
-  process:
+  add-subscriber:
     runs-on: ubuntu-latest
     steps:
+      # Schritt 1: Das PRIVATE Repository auschecken, in das wir schreiben wollen.
+      # Wir verwenden ein spezielles Secret, das die nötigen Rechte dafür hat.
       - name: Checkout private repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
-          repository: jeffconrad18/newsletter-emails-private  
-          token: ${{ secrets.PRIVATE_REPO_TOKEN }}  
+          # Der Name deines privaten Repositories
+          repository: jeffconrad18/newsletter-emails-private
+          # Das Secret, das den Zugriff auf das private Repo erlaubt
+          token: ${{ secrets.PRIVATE_REPO_TOKEN }}
+          # In einen separaten Ordner auschecken, um Konflikte zu vermeiden
           path: private-repo
+
+      # Schritt 2: Die neue E-Mail-Adresse an die CSV-Datei anhängen.
       - name: Add email to list
         run: |
-          echo "${{ github.event.client_payload.email }},$(date)" >> private-repo/emails.csv
-      - name: Commit and push to private repo
+          # Wir holen die E-Mail aus dem "client_payload" des Events
+          # und fügen sie zusammen mit einem Zeitstempel (im ISO 8601 Format) hinzu.
+          echo "${{ github.event.client_payload.email }},$(date --iso-8601=seconds)" >> private-repo/emails.csv
+
+      # Schritt 3: Die Änderungen committen und in das private Repository pushen.
+      - name: Commit and push changes
         run: |
+          # In das Verzeichnis des privaten Repos wechseln
           cd private-repo
-          git config --local user.email "github-actions@github.com"
+          
+          # Git für den Commit konfigurieren
+          git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
+          
+          # Die geänderte CSV-Datei hinzufügen
           git add emails.csv
-          git commit -m "Add new subscriber" || echo "No changes to commit"
-          git push
+          
+          # Nur committen, wenn es tatsächlich Änderungen gibt
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "Add new newsletter subscriber"
+            git push
+          else
+            echo "No changes to commit."
+          fi
