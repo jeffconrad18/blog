@@ -4,7 +4,7 @@ import type { APIRoute } from 'astro';
 // und nicht im Client-seitigen Code verwendet
 const GITHUB_TOKEN = import.meta.env.GITHUB_TOKEN;
 const REPO_OWNER = 'jeffconrad18';
-const REPO_NAME = 'newsletter-emails-private';
+const REPO_NAME = 'blog';
 
 export const POST: APIRoute = async ({ request }) => {
   try {
