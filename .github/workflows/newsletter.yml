@@ -1,0 +1,25 @@
+name: Newsletter Signup
+on:
+  repository_dispatch:
+    types: [newsletter-signup]
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout private repo
+        uses: actions/checkout@v3
+        with:
+          repository: kilian/newsletter-emails-private
+          token: ${{ secrets.PRIVATE_REPO_TOKEN }}
+          path: private-repo
+      - name: Add email to list
+        run: |
+          echo "${{ github.event.client_payload.email }},$(date)" >> private-repo/emails.csv
+      - name: Commit and push to private repo
+        run: |
+          cd private-repo
+          git config --local user.email "github-actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add emails.csv
+          git commit -m "Add new subscriber" || echo "No changes to commit"
+          git push
