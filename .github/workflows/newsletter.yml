@@ -9,8 +9,8 @@ jobs:
       - name: Checkout private repo
         uses: actions/checkout@v3
         with:
-          repository: kilian/newsletter-emails-private
-          token: ${{ secrets.PRIVATE_REPO_TOKEN }}
+          repository: jeffconrad18/newsletter-emails-private  
+          token: ${{ secrets.PRIVATE_REPO_TOKEN }}  
           path: private-repo
       - name: Add email to list
         run: |

@@ -3,7 +3,7 @@ import type { APIRoute } from 'astro';
 // Der GitHub-Token wird als Environment-Variable auf dem Server konfiguriert
 // und nicht im Client-seitigen Code verwendet
 const GITHUB_TOKEN = import.meta.env.GITHUB_TOKEN;
-const REPO_OWNER = 'kilian';
+const REPO_OWNER = 'jeffconrad18';
 const REPO_NAME = 'newsletter-emails-private';
 
 export const POST: APIRoute = async ({ request }) => {
