@@ -6,6 +6,7 @@ export const ui = {
     posts: 'Beiträge',
     tags: 'Jesuit Volunteers',
     about: 'Über mich',
+    project: 'Projekt',
     toc: 'Inhaltsverzeichnis',
   },
   'en': {
@@ -15,6 +16,7 @@ export const ui = {
     posts: 'Posts',
     tags: 'Tags',
     about: 'About',
+    project: 'Project',
     toc: 'Table of Contents',
   },
   'es': {
@@ -24,6 +26,7 @@ export const ui = {
     posts: 'Artículos',
     tags: 'Etiquetas',
     about: 'Sobre',
+    project: 'Proyecto',
     toc: 'Índice',
   },
   'fr': {
@@ -33,6 +36,7 @@ export const ui = {
     posts: 'Articles',
     tags: 'Étiquettes',
     about: 'À propos',
+    project: 'Projet',
     toc: 'Table des matières',
   },
   'ja': {
@@ -42,6 +46,7 @@ export const ui = {
     posts: '記事',
     tags: 'タグ',
     about: '概要',
+    project: 'プロジェクト',
     toc: '目次',
   },
   'ko': {
@@ -51,6 +56,7 @@ export const ui = {
     posts: '게시물',
     tags: '태그',
     about: '소개',
+    project: '프로젝트',
     toc: '목차',
   },
   'pl': {
@@ -60,6 +66,7 @@ export const ui = {
     posts: 'Artykuły',
     tags: 'Tagi',
     about: 'O stronie',
+    project: 'Projekt',
     toc: 'Spis treści',
   },
   'pt': {
@@ -69,6 +76,7 @@ export const ui = {
     posts: 'Artigos',
     tags: 'Tags',
     about: 'Sobre',
+    project: 'Projeto',
     toc: 'Sumário',
   },
   'ru': {
@@ -78,6 +86,7 @@ export const ui = {
     posts: 'Посты',
     tags: 'Теги',
     about: 'О себе',
+    project: 'Проект',
     toc: 'Оглавление',
   },
   'zh': {
@@ -87,6 +96,7 @@ export const ui = {
     posts: '文章',
     tags: '标签',
     about: '关于',
+    project: '项目',
     toc: '目录',
   },
   'zh-tw': {
@@ -96,6 +106,7 @@ export const ui = {
     posts: '文章',
     tags: '標籤',
     about: '關於',
+    project: '項目',
     toc: '目錄',
   },
 }

@@ -1,9 +1,10 @@
 ---
 import { ui } from '@/i18n/ui'
-import { getPageInfo, isJesuitVolunteersPage } from '@/utils/page'
+import { getPageInfo, isJesuitVolunteersPage, isProjectPage } from '@/utils/page'
 
-const { currentLang, isHome, isPost, isTag, isAbout, getLocalizedPath } = getPageInfo(Astro.url.pathname)
+const { currentLang, isHome, isPost, isTag, isAbout, isProject, getLocalizedPath } = getPageInfo(Astro.url.pathname)
 const isJesuitVolunteersActive = isJesuitVolunteersPage(Astro.url.pathname)
+const isProjectActive = isProjectPage(Astro.url.pathname)
 const currentUI = ui[currentLang as keyof typeof ui] ?? {}
 
 const isPostActive = isHome || isPost
@@ -26,6 +27,11 @@ const navItems = [
     href: '/jesuitvolunteers/',
     label: currentUI.tags, // oder currentUI.jesuitvolunteers, falls du das UI-Label anpassen willst
     className: getNavItemClass(isJesuitVolunteersActive),
+  },
+  {
+    href: '/project/',
+    label: currentUI.project,
+    className: getNavItemClass(isProjectActive),
   },
   {
     href: '/about/',

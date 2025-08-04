@@ -32,6 +32,7 @@ In Indien sind wir zu dritt – ich werde mit Paulina in Pune leben, während Le
 - Claus [Blog](https://clausinathen.wordpress.com/) [Instagram](https://www.instagram.com/jv.in.athens/)
 
 ### Bulgarien
+- Helga & Hans
 
 ### Vietnam
 

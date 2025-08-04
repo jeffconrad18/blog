@@ -1,0 +1,48 @@
+---
+import { getCollection, render } from 'astro:content'
+import { defaultLocale, moreLocales } from '@/config'
+import Layout from '@/layouts/Layout.astro'
+
+export async function getStaticPaths() {
+  type PathItem = {
+    params: { project: string }
+    props: { lang: string }
+  }
+
+  const paths: PathItem[] = []
+
+  // Default locale
+  paths.push({
+    params: { project: 'project/' },
+    props: { lang: defaultLocale },
+  })
+
+  // More locales
+  moreLocales.forEach((lang: string) => {
+    paths.push({
+      params: { project: `${lang}/project/` },
+      props: { lang },
+    })
+  })
+
+  return paths
+}
+
+const { lang } = Astro.props
+
+// Get project page content with different language
+const allProjectEntries = await getCollection('project')
+const projectEntry = allProjectEntries.find(entry => entry.data.lang === lang)
+  ?? allProjectEntries.find(entry => entry.data.lang === '')
+const { Content } = projectEntry ? await render(projectEntry) : { Content: null }
+---
+
+<Layout>
+  <!-- Überschrift Projekt -->
+  <h2 class="mb-2 text-xl font-bold">Projekt</h2>
+  <div class="uno-decorative-line" />
+  <!-- Project Page Content -->
+  <div class="heti">
+    {Content && <Content />}
+  </div>
+</Layout>
