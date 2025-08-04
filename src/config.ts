@@ -139,10 +139,6 @@ export const themeConfig: ThemeConfig = {
         url: 'https://www.instagram.com/sommernachtsbluetenregentraum/',
       },
       {
-        name: 'Newsletter',
-        url: 'mailto:kilian.kienast@gmx.de?subject=Anmeldung Newsletter Post aus Pune&body=Lieber Kilian,%0D%0A%0D%0AIch möchte mich gerne für deinen Post aus Pune - Newsletter anmelden, um über neue Beiträge informiert zu werden.%0D%0A%0D%0AVielen Dank!',
-      },
-      {
         name: 'RSS Feed',
         url: '/rss.xml',
       },
@@ -150,10 +146,6 @@ export const themeConfig: ThemeConfig = {
         name: 'Email',
         url: 'kilian.kienast@gmx.de',
       },
-      // {
-      //   name: 'X',
-      //   url: 'https://x.com/radishzz_',
-      // },
     ],
     // year of website start
     startYear: 2025,
