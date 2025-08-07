@@ -32,11 +32,14 @@ In Indien sind wir zu dritt – ich werde mit Paulina in Pune leben, während Le
 - Claus [Blog](https://clausinathen.wordpress.com/) [Instagram](https://www.instagram.com/jv.in.athens/)
 
 ### Bulgarien
+
 - Helga & Hans
 
 ### Vietnam
 
 - Simons [YouTube-Kanal](https://www.youtube.com/@xXLord_SonimenXx) [Instagram](https://www.instagram.com/xxlord_sonimenxx/)
+
+![Gruppenfoto der Freiwilligen](../posts/_images/jvgroup.jpg)
 
 Die Vorbereitung auf das Freiwilligenjahr beginnt bereits Monate vor der Ausreise. Seit Januar haben wir uns gemeinsam in mehreren Seminaren auf das Jahr vorbereitet. Diese Seminare beschäftigten sich mit Themen wie Kulturbewusstsein in der globalisierten Welt, Krisen- und Notfallmanagement, Armut und Globalisierung sowie Gleichberechtigung. Die Vorbereitungen haben gezeigt, dass die Freiwilligeneinsätze nicht nur persönliche Abenteuer sind, sondern Teil eines größeren Geflechts globaler Verbindungen und Verantwortungen.
 Während des Einsatzes werden die Freiwilligen kontinuierlich von jesuitenweltweit begleitet und unterstützt. Regelmäßige Gespräche, Reflexionsmöglichkeiten und der Austausch mit anderen Freiwilligen helfen dabei, die Erfahrungen zu verarbeiten und das Beste aus der Zeit zu machen.

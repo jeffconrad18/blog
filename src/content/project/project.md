@@ -8,6 +8,8 @@ Ich habe das große Glück, meine Einsatzstelle bei Maher gefunden zu haben – 
 
 Maher ist eine große Nichtregierungsorganisation, die sich für Menschen in schwierigen Lebenslagen einsetzt. Die NGO betreibt Kinder- und Frauenhäuser, Kindergärten und Tagesstätten sowie verschiedene Bildungs- und Trainingsprogramme. Im Mittelpunkt stehen dabei immer der Mensch und das Ziel, allen ein würdiges Leben zu ermöglichen.
 
+![Karte von Indien, mein Einsatzort Pune liegt im Westen des Landes](../posts/_images/map.png)
+
 Mein Haupteinsatzort ist die Einrichtung Vatsalyadam – ein liebevoll geführtes Kinder- und Frauenhaus. Hier finden vor allem psychisch kranke Frauen und vernachlässigte Kinder nicht nur Unterkunft und Schutz, sondern auch die dringend benötigte Betreuung, Fürsorge und Respekt. Die Mitarbeiter und Freiwilligen bemühen sich jeden Tag aufs Neue, die Frauen und Kinder zu rehabilitieren und ihnen Freude, Selbstvertrauen und neue Lebensperspektiven zu schenken. In der Nähe befinden sich außerdem ein *Boy’s Home* und ein *Men’s Home*, die ähnliche soziale Aufgaben übernehmen.
 
 **Meine Aufgaben als Freiwilliger:**
