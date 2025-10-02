@@ -115,7 +115,7 @@ export const themeConfig: ThemeConfig = {
       baidu: '',
     },
     // Analytics nur aktivieren wenn du es nutzen möchtest
-    googleAnalyticsID: '',
+    googleAnalyticsID: 'G-GDYLKM1FYY',
     // Diese Umami-ID gehört nicht dir - entfernen!
     umamiAnalyticsID: '',
     follow: {
