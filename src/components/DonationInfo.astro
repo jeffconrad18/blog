@@ -11,15 +11,20 @@ const footerLinkClass = 'highlight-hover py-0.8 transition-colors after:bottom-0
   class="font-navbar text-3.5 mb-8 md:text-3.5 md:mb-8 lg:text-3.5 lg:mb-8 mt-12"
   style="line-height:1.5; z-index:1; position:relative; background:var(--bg,transparent);"
 >
-  <div><strong>Spendenkonto oder <a
+  <div>
+    <strong>
+      Spendenkonto oder
+      <a
         href="https://www.jesuit-volunteers.org/spende25/?tw_target_id=X38439"
         target="_blank"
         rel="noopener noreferrer"
-        class={footerLinkClass}
+        class={`${footerLinkClass} inline-flex items-center px-2 py-0.5 rounded bg-primary/10 hover:bg-primary/20 c-primary no-underline no-highlight`}
+        style="text-decoration: none"
       >
-        <span style="color:var(--c-primary, #0070f3)">Online:</span>
+        <span class="c-primary">Online:</span>
       </a>
-      </strong></div>
+    </strong>
+  </div>
   <div>Kontoinhaber: jesuitenweltweit</div>
   <div>IBAN: DE61 7509 0300 0005 1155 82</div>
   <div>BIC: GENO DEF1 M05</div>

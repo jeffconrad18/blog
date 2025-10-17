@@ -40,6 +40,11 @@ body::selection {
   --at-apply: 'origin-bottom-right scale-x-0 transition-transform ease-out lg:duration-300';
 }
 
+/* Utility: disable highlight hover underline on specific elements */
+.no-highlight::after {
+  display: none !important;
+}
+
 /* Heading Anchor Link >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
 .heading-anchor-link {
   --at-apply: 'inline-block translate-y-0.1em';
