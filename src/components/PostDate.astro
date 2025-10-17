@@ -13,6 +13,11 @@ const format = themeConfig.global.dateFormat
 const isPost = isPostPage(Astro.url.pathname)
 const timeSpacingClass = isPost ? 'ml-1.75' : 'ml-1.5'
 
+// Check if we're on the posts listing page (not an individual post)
+const normalizedPath = Astro.url.pathname.replace(/^\/|\/$/g, '')
+const isPostsListingPage = normalizedPath === 'posts' || normalizedPath.endsWith('/posts')
+const showDonationButton = !isPostsListingPage
+
 function formatDate(date: Date, format: 'YYYY-MM-DD' | 'MM-DD-YYYY' | 'DD-MM-YYYY' | 'MONTH DAY YYYY' | 'DAY MONTH YYYY') {
   if (format === 'YYYY-MM-DD') {
     return date.toISOString().split('T')[0]
@@ -75,3 +80,15 @@ function formatDate(date: Date, format: 'YYYY-MM-DD' | 'MM-DD-YYYY' | 'DD-MM-YYY
 <span class={timeSpacingClass}>
   {minutes} min
 </span>
+
+<!-- donation button -->
+{showDonationButton && (
+  <a 
+    href="#donation-info"
+    class={`${timeSpacingClass} inline-flex items-center px-2 py-0.5 rounded bg-primary/10 hover:bg-primary/20 c-primary text-sm transition-colors`}
+    style="text-decoration: none;"
+    aria-label="Spenden"
+  >
+    Spenden
+  </a>
+)}
