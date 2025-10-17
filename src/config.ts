@@ -135,16 +135,12 @@ export const themeConfig: ThemeConfig = {
         url: 'https://www.whatsapp.com/channel/0029VbAZOL78qIzyCJcwXB1A',
       },
       {
-        name: 'Instagram',
-        url: 'https://www.instagram.com/sommernachtsbluetenregentraum/',
+        name: 'Email',
+        url: 'kilian.kienast@gmx.de',
       },
       {
         name: 'RSS Feed',
         url: '/rss.xml',
-      },
-      {
-        name: 'Email',
-        url: 'kilian.kienast@gmx.de',
       },
     ],
     // year of website start
