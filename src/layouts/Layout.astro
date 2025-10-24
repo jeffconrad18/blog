@@ -19,6 +19,13 @@ import '@/styles/global.css'
 import '@/styles/lqip.css'
 import '@/styles/markdown.css'
 import '@/styles/transition.css'
+import fs from 'node:fs'
+import path from 'node:path'
+
+const pageCommentText = fs.readFileSync(
+  path.join(process.cwd(), 'src/page-comment.txt'),
+  'utf-8'
+).trim()
 
 interface Props {
   postTitle?: string
@@ -35,6 +42,7 @@ const MarginBottom = isPost && themeConfig.comment?.enabled
   : 'mb-12' // Other pages without comments
 ---
 
+<Fragment set:html={`<!-- ${pageCommentText} -->`} />
 <html
   lang={Astro.currentLocale}
   class:list={[
