@@ -10,8 +10,8 @@ const pageDescription = 'Verschlüsselte Notfall-Kontakte und wichtige Informati
 ---
 
 <Layout postTitle={pageTitle} postDescription={pageDescription}>
-  <article class="prose post-body">
-    <h1 class="post-title">🚨 Notfall-Informationen</h1>
+  <article class="heti">
+    <h1 class="post-title">Notfall-Informationen</h1>
     
     <div id="password-section" class="notfall-container">
       <div class="password-box">
@@ -43,26 +43,23 @@ const pageDescription = 'Verschlüsselte Notfall-Kontakte und wichtige Informati
     
     <div id="content-section" class="hidden">
       <div class="success-message">
-        ✅ Erfolgreich entschlüsselt!
+        Erfolgreich entschlüsselt
       </div>
-      <div id="decrypted-content" class="decrypted-content markdown-body"></div>
+      <div id="decrypted-content" class="decrypted-content heti"></div>
       <button id="lock-button" class="btn-secondary">
-        🔒 Wieder verschlüsseln
+        Wieder verschlüsseln
       </button>
     </div>
   </article>
 </Layout>
 
 <style>
-  .post-body {
-    max-width: 65ch;
-    margin: 0 auto;
-  }
-
   .post-title {
     text-align: center;
     margin-bottom: 2rem;
     color: var(--color-primary);
+    /* Größer und fett wie Posts (siehe markdown.css .heti .post-title) */
+    font-weight: 700;
   }
 
   .intro-text {
@@ -78,7 +75,6 @@ const pageDescription = 'Verschlüsselte Notfall-Kontakte und wichtige Informati
     background: var(--color-background);
     border: 1px solid color-mix(in oklch, var(--color-primary) 12%, transparent);
     margin: 2rem 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   }
 
   .password-box {
@@ -139,7 +135,6 @@ const pageDescription = 'Verschlüsselte Notfall-Kontakte und wichtige Informati
   .btn-primary:hover,
   .btn-secondary:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 
   .btn-primary:active,
@@ -219,115 +214,12 @@ const pageDescription = 'Verschlüsselte Notfall-Kontakte und wichtige Informati
     background: var(--color-background);
     border: 1px solid color-mix(in oklch, var(--color-primary) 12%, transparent);
     margin-bottom: 1.5rem;
-    max-height: 70vh;
-    overflow-y: auto;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   }
 
-  /* Markdown-Styling im entschlüsselten Inhalt */
-  .markdown-body {
-    font-size: 1rem;
-    line-height: 1.75;
-    color: var(--color-primary);
-  }
-
-  .markdown-body h1,
-  .markdown-body h2,
-  .markdown-body h3,
-  .markdown-body h4 {
-    color: var(--color-primary);
-    font-weight: 600;
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
-    line-height: 1.3;
-  }
-
-  .markdown-body h1 {
-    font-size: 1.5rem;
-    border-bottom: 2px solid color-mix(in oklch, var(--color-primary) 15%, transparent);
-    padding-bottom: 0.5rem;
-  }
-
-  .markdown-body h2 {
-    font-size: 1.25rem;
-    border-bottom: 1px solid color-mix(in oklch, var(--color-primary) 10%, transparent);
-    padding-bottom: 0.4rem;
-  }
-
-  .markdown-body h3 {
-    font-size: 1.1rem;
-  }
-
-  .markdown-body p {
-    margin: 0.75rem 0;
-    color: var(--color-secondary);
-  }
-
-  .markdown-body ul,
-  .markdown-body ol {
-    margin: 1rem 0;
-    padding-left: 1.75rem;
-    color: var(--color-secondary);
-  }
-
-  .markdown-body li {
-    margin: 0.375rem 0;
-  }
-
-  .markdown-body strong {
-    font-weight: 600;
-    color: var(--color-primary);
-  }
-
-  .markdown-body code {
-    background: color-mix(in oklch, var(--color-primary) 8%, transparent);
-    padding: 0.125rem 0.375rem;
-    border-radius: 0.25rem;
-    font-family: 'Courier New', monospace;
-    font-size: 0.9em;
-    color: var(--color-primary);
-  }
-
-  .markdown-body pre {
-    background: color-mix(in oklch, var(--color-primary) 8%, transparent);
-    padding: 1rem;
-    border-radius: 0.5rem;
-    overflow-x: auto;
-    margin: 1rem 0;
-  }
-
-  .markdown-body pre code {
-    background: transparent;
-    padding: 0;
-  }
-
-  .markdown-body hr {
-    border: none;
-    border-top: 1px solid color-mix(in oklch, var(--color-primary) 12%, transparent);
-    margin: 1.5rem 0;
-  }
-
-  .markdown-body a {
-    color: var(--color-primary);
-    text-decoration: underline;
-    text-decoration-color: var(--color-highlight);
-    transition: all 0.2s;
-  }
-
-  .markdown-body a:hover {
-    background: var(--color-highlight);
-  }
-
-  .markdown-body blockquote {
-    border-left: 3px solid color-mix(in oklch, var(--color-primary) 30%, transparent);
-    padding-left: 1rem;
-    margin: 1rem 0;
-    font-style: italic;
-    color: var(--color-secondary);
-  }
+  /* Für Inhalt verwenden wir die siteweiten .heti Markdown-Stile */
 </style>
 
-<script define:vars={{ encryptedData }}>
+<script is:inline define:vars={{ encryptedData }}>
   // Verschlüsselte Daten aus Astro
   const ENCRYPTED_DATA = encryptedData;
 
@@ -341,62 +233,108 @@ const pageDescription = 'Verschlüsselte Notfall-Kontakte und wichtige Informati
   const contentSection = document.getElementById('content-section');
   const decryptedContent = document.getElementById('decrypted-content');
 
-  /**
-   * Einfacher Markdown-zu-HTML-Converter
-   */
-  function parseMarkdown(markdown) {
-    let html = markdown;
+  // Robuster, einfacher Markdown-Parser ohne Abhängigkeiten
+  function parseMarkdown(md) {
+    const escapeHtml = (s) => s
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
 
-    // Escape HTML
-    html = html.replace(/&/g, '&amp;')
-               .replace(/</g, '&lt;')
-               .replace(/>/g, '&gt;');
+    const formatInline = (s) => {
+      // Code inline zuerst, damit innen keine weiteren Umwandlungen passieren
+      s = s.replace(/`([^`]+)`/g, (_, code) => `<code>${escapeHtml(code)}</code>`);
+      // Links
+      s = s.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+      // Fett/Kursiv
+      s = s.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+           .replace(/__(.*?)__/g, '<strong>$1</strong>')
+           .replace(/\*(.*?)\*/g, '<em>$1</em>')
+           .replace(/_(.*?)_/g, '<em>$1</em>');
+      return s;
+    };
 
-    // Headers
-    html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
-    html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
-    html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+    const lines = md.replace(/\r\n?/g, '\n').split('\n');
+    let i = 0; let html = '';
+    let inCode = false; let code = [];
 
-    // Bold
-    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    html = html.replace(/__(.*?)__/g, '<strong>$1</strong>');
+    const peek = () => lines[i] || '';
+    const isUl = (l) => /^\s*[-*+]\s+/.test(l);
+    const isOl = (l) => /^\s*\d+\.\s+/.test(l);
+    const isRule = (l) => /^\s*[-*_]{3,}\s*$/.test(l);
+    const isHeading = (l) => /^\s{0,3}(#{1,6})\s+(.+)$/.exec(l);
+    const isQuote = (l) => /^\s*>\s?/.test(l);
 
-    // Italic
-    html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
-    html = html.replace(/_(.*?)_/g, '<em>$1</em>');
+    while (i < lines.length) {
+      let line = lines[i];
 
-    // Links
-    html = html.replace(/\[([^\]]+)\]\(([^\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
-
-    // Code blocks
-    html = html.replace(/```(.*?)```/gs, '<pre><code>$1</code></pre>');
-    
-    // Inline code
-    html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
-
-    // Horizontal rules
-    html = html.replace(/^[-*_]{3,}$/gim, '<hr>');
-
-    // Lists (unordered)
-    html = html.replace(/^\s*[-*+]\s+(.+)$/gim, '<li>$1</li>');
-    html = html.replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>');
-
-    // Lists (ordered)
-    html = html.replace(/^\s*\d+\.\s+(.+)$/gim, '<li>$1</li>');
-    
-    // Line breaks and paragraphs
-    html = html.split('\n\n').map(para => {
-      // Wenn es schon ein HTML-Block ist, nicht wrappen
-      if (para.match(/^<(h[1-6]|ul|ol|pre|hr|blockquote)/)) {
-        return para;
+      // Fenced code block
+      if (/^```/.test(line)) {
+        if (inCode) {
+          html += `<pre><code>${escapeHtml(code.join('\n'))}</code></pre>`;
+          code = []; inCode = false; i++; continue;
+        } else {
+          inCode = true; i++; continue;
+        }
       }
-      // Leere Zeilen ignorieren
-      if (para.trim() === '') {
-        return '';
+
+      if (inCode) { code.push(line); i++; continue; }
+
+      // Horizontal rule
+      if (isRule(line)) { html += '<hr>'; i++; continue; }
+
+      // Heading
+      const h = isHeading(line);
+      if (h) {
+        const level = h[1].length; const text = h[2].trim();
+        html += `<h${level}>${formatInline(escapeHtml(text))}</h${level}>`;
+        i++; continue;
       }
-      // Sonst als Paragraph wrappen
-      return '<p>' + para.replace(/\n/g, '<br>') + '</p>';
-    }).join('\n');
+
+      // Blockquote
+      if (isQuote(line)) {
+        const block = [];
+        while (i < lines.length && isQuote(lines[i])) {
+          block.push(lines[i].replace(/^\s*>\s?/, ''));
+          i++;
+        }
+        html += `<blockquote>${parseMarkdown(block.join('\n'))}</blockquote>`;
+        continue;
+      }
+
+      // Lists
+      if (isUl(line) || isOl(line)) {
+        const ordered = isOl(line);
+        const items = [];
+        while (i < lines.length && (isUl(lines[i]) || isOl(lines[i]))) {
+          const itemLine = lines[i].replace(/^\s*(?:[-*+]|\d+\.)\s+/, '');
+          // Sammle eventuelle Folgezeilen
+          const chunk = [itemLine];
+          i++;
+          while (i < lines.length && lines[i].trim() !== '' && !isUl(lines[i]) && !isOl(lines[i]) && !isHeading(lines[i]) && !/^```/.test(lines[i])) {
+            chunk.push(lines[i]); i++;
+          }
+          items.push(`<li>${formatInline(escapeHtml(chunk.join(' ')))}</li>`);
+          if (i < lines.length && lines[i].trim() === '') i++;
+        }
+        html += ordered ? `<ol>${items.join('')}</ol>` : `<ul>${items.join('')}</ul>`;
+        continue;
+      }
+
+      // Blank line
+      if (line.trim() === '') { i++; continue; }
+
+      // Paragraph: sammle bis zur nächsten Blockgrenze
+      const para = [line];
+      i++;
+      while (i < lines.length && lines[i].trim() !== '' && !isHeading(lines[i]) && !isUl(lines[i]) && !isOl(lines[i]) && !isRule(lines[i]) && !/^```/.test(lines[i]) && !isQuote(lines[i])) {
+        para.push(lines[i]);
+        i++;
+      }
+      html += `<p>${formatInline(escapeHtml(para.join(' ')))}</p>`;
+      if (i < lines.length && lines[i].trim() === '') i++;
+    }
 
     return html;
   }
