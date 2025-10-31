@@ -51,7 +51,10 @@ export default defineConfig({
         forward: ['dataLayer.push', 'gtag'],
       },
     }),
-    sitemap(),
+    // Sitemap: /notfall ausschließen
+    sitemap({
+      filter: (page) => !String(page).includes('/notfall/'),
+    }),
     Compress({
       CSS: true,
       HTML: true,

@@ -6,6 +6,8 @@ export const GET: APIRoute = ({ site }) => {
   const robotsTxt = [
     'User-agent: *',
     'Allow: /',
+    // Blockiere sensible/irrelevante Routen für Crawler
+    'Disallow: /notfall/',
     'Disallow: /_astro/',
     'Disallow: /feeds/',
     'Disallow: /giscus/',
