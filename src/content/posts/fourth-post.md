@@ -60,6 +60,6 @@ Und während ich so dasitze, Zuckerrohr kauend, Kinder um mich herum, Feuerwerke
 
 ![Indische Kuh](../posts/_images/fourth-post/img-08.jpg)
 
-![Indische Häuser](../posts/_images/fourth-post/img-10.jpg)
+![Haus im ehemaligen Slum](../posts/_images/fourth-post/img-10.jpg)
 
 ![Indische Palme](../posts/_images/fourth-post/img-11.jpg)
