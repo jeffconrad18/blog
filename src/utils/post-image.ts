@@ -1,11 +1,10 @@
-import type { CollectionEntry } from 'astro:content'
 import { getImage } from 'astro:assets'
 
 const imagesGlob = import.meta.glob<{ default: ImageMetadata }>('/src/content/posts/_images/**/*.{jpeg,jpg,png,gif,webp}')
 
-export async function getPostImage(post: CollectionEntry<any>): Promise<string | undefined> {
+export async function getPostImage(post: { data: Record<string, any>, body?: string }): Promise<string | undefined> {
   // 1. Check frontmatter cover
-  if ('cover' in post.data && post.data.cover) {
+  if (post.data.cover) {
     return post.data.cover as string
   }
 
