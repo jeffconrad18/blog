@@ -9,10 +9,11 @@ interface Props {
   postTitle?: string
   postDescription?: string
   postSlug?: string
+  postImage?: string
 }
 
 // Props and Language
-const { postTitle, postDescription, postSlug } = Astro.props
+const { postTitle, postDescription, postSlug, postImage: propImage } = Astro.props
 const { currentLang } = getPageInfo(Astro.url.pathname)
 const currentUI = ui[currentLang as keyof typeof ui] ?? {}
 const langCode = currentLang === defaultLocale ? '' : `${currentLang}/`
@@ -34,11 +35,13 @@ const siteDescription = i18nTitle ? currentUI.description : description
 // Page Metadata
 const pageTitle = postTitle ? `${postTitle} | ${siteTitle}` : `${siteTitle} - ${siteSubtitle}`
 const pageDescription = postDescription || siteDescription
-const pageImage = postSlug
-  ? `${url}/og/${postSlug}.png`
-  : apiflashKey
-    ? `https://api.apiflash.com/v1/urltoimage?access_key=${apiflashKey}&url=${url}/${langCode}&format=png&width=1500&height=788&ttl=86400&wait_until=network_idle&no_tracking=true`
-    : `https://api.apiflash.com/v1/urltoimage?access_key=02a837b6188f4ba0a7fd9fbeff03a83e&url=https://retypeset.radishzz.cc/${langCode}&format=png&width=1500&height=788&ttl=172800&wait_until=network_idle&no_tracking=true`
+const pageImage = propImage
+  ? (propImage.startsWith('http') ? propImage : `${url}${propImage}`)
+  : (postSlug
+    ? `${url}/og/${postSlug}.png`
+    : apiflashKey
+      ? `https://api.apiflash.com/v1/urltoimage?access_key=${apiflashKey}&url=${url}/${langCode}&format=png&width=1500&height=788&ttl=86400&wait_until=network_idle&no_tracking=true`
+      : `https://api.apiflash.com/v1/urltoimage?access_key=02a837b6188f4ba0a7fd9fbeff03a83e&url=https://retypeset.radishzz.cc/${langCode}&format=png&width=1500&height=788&ttl=172800&wait_until=network_idle&no_tracking=true`)
 // Page specific: prevent indexing of sensitive route(s)
 const isNoIndex = Astro.url.pathname.includes('/notfall')
 ---
