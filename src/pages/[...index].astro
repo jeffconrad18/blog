@@ -8,6 +8,7 @@ import { defaultLocale, moreLocales } from '@/config'
 import Layout from '@/layouts/Layout.astro'
 import { getPosts } from '@/utils/content'
 import { getPostDescription } from '@/utils/description'
+import { getPostImage } from '@/utils/post-image'
 
 export async function getStaticPaths() {
   type PathItem = {
@@ -45,6 +46,7 @@ if (!latestPost) {
 }
 
 const description = getPostDescription(latestPost, 'meta')
+const postImage = await getPostImage(latestPost)
 const { Content, headings, remarkPluginFrontmatter } = await render(latestPost)
 ---
 
@@ -52,6 +54,7 @@ const { Content, headings, remarkPluginFrontmatter } = await render(latestPost)
   postTitle={latestPost.data.title}
   postDescription={description}
   postSlug={latestPost.id}
+  postImage={postImage}
 >
   <article class="heti">
     <div class="relative">
