@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content'
 import { defaultLocale, moreLocales } from '@/config'
 import Layout from '@/layouts/Layout.astro'
+import { getPostImage } from '@/utils/post-image'
 
 export async function getStaticPaths() {
   type PathItem = {
@@ -35,9 +36,11 @@ const allProjectEntries = await getCollection('project')
 const projectEntry = allProjectEntries.find(entry => entry.data.lang === lang)
   ?? allProjectEntries.find(entry => entry.data.lang === '')
 const { Content } = projectEntry ? await render(projectEntry) : { Content: null }
+
+const postImage = projectEntry ? await getPostImage(projectEntry) : undefined
 ---
 
-<Layout>
+<Layout postImage={postImage}>
   <!-- Überschrift Projekt -->
   <h2 class="mb-2 text-xl font-bold">Projekt</h2>
   <div class="uno-decorative-line" />

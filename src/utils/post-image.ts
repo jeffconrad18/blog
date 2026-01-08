@@ -3,13 +3,10 @@ import { getImage } from 'astro:assets'
 
 const imagesGlob = import.meta.glob<{ default: ImageMetadata }>('/src/content/posts/_images/**/*.{jpeg,jpg,png,gif,webp}')
 
-export async function getPostImage(post: CollectionEntry<'posts'>): Promise<string | undefined> {
+export async function getPostImage(post: CollectionEntry<any>): Promise<string | undefined> {
   // 1. Check frontmatter cover
-  if (post.data.cover) {
-    return post.data.cover // Assuming this is an external URL or handled otherwise. 
-    // If it's a local path, we might need similar logic, but let's assume external or simple path for now if user manually sets it.
-    // Ideally user sets a path relative to the post or project root. 
-    // For now I'll focus on the extraction part as requested.
+  if ('cover' in post.data && post.data.cover) {
+    return post.data.cover as string
   }
 
   // 2. Extract from content
