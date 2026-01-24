@@ -28,3 +28,6 @@ pnpm-debug.log*
 # Sensitive local files (do not commit)
 notfall.txt
 encrypt_notfall.py
+
+# Windows-specific files
+**:Zone.Identifier
