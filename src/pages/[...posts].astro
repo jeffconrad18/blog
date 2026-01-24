@@ -46,11 +46,13 @@ const postsByYear = await getPostsByYear(lang)
   )}
 
   <!-- Regular Posts -->
-  {[...postsByYear.entries()].map(([_year, posts]) => (
+  {[...postsByYear.entries()].length > 0 && (
     <section class="mb-7.5">
       <h2 class="mb-2 text-xl font-bold">Beiträge</h2>
       <div class="uno-decorative-line" />
-      <PostList posts={posts} lang={lang} showAsHome={true} />
+      {[...postsByYear.entries()].map(([_year, posts]) => (
+        <PostList posts={posts} lang={lang} showAsHome={true} />
+      ))}
     </section>
-  ))}
+  )}
 </Layout>
